@@ -10,7 +10,7 @@ public class PyTorchBP : ModuleRules
 		
 		PublicIncludePaths.AddRange(
 			new string[] {
-				"PyTorchLib/Include"
+				
 			}
 			);
 				
@@ -38,7 +38,8 @@ public class PyTorchBP : ModuleRules
 				"CoreUObject",
 				"Engine",
 				"Slate",
-				"SlateCore"
+				"SlateCore",
+				"PyTorchLib"
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);
