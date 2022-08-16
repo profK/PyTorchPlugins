@@ -51,4 +51,7 @@ class UPyTorchBPBPLibrary : public UBlueprintFunctionLibrary
 
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Make Random Int Tensor", Keywords = "PyTorchBP s"), Category = "PyTorch")
 	static FTensor  RandIntTensor(int rows,int cols);
+	
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Tensor To String", Keywords = "PyTorchBP s"), Category = "PyTorch")
+    	static FString  TensorToString(FTensor tensor);
 };
