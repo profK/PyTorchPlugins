@@ -9,8 +9,8 @@ UPyTorchBPBPLibrary::UPyTorchBPBPLibrary(const FObjectInitializer& ObjectInitial
 
 }
 
-float UPyTorchBPBPLibrary::PyTorchBPSampleFunction(float Param)
+FTensor UPyTorchBPBPLibrary::RandIntTensor(int rows,int cols)
 {
-	return -1;
+	return FTensor(torch::rand({rows,cols}));
 }
 

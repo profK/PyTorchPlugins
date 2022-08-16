@@ -6,6 +6,7 @@ public class PyTorchBP : ModuleRules
 {
 	public PyTorchBP(ReadOnlyTargetRules Target) : base(Target)
 	{
+		bUseRTTI = true;
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 		
 		PublicIncludePaths.AddRange(

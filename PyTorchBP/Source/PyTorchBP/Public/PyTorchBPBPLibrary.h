@@ -2,8 +2,10 @@
 
 #pragma once
 
+#include "PyTorchLib.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "PyTorchBPBPLibrary.generated.h"
+
 
 /* 
 *	Function library class.
@@ -22,11 +24,31 @@
 *	For more info on custom blueprint nodes visit documentation:
 *	https://wiki.unrealengine.com/Custom_Blueprint_Node_Creation
 */
+
+USTRUCT(BlueprintType)
+struct FTensor
+{
+	GENERATED_BODY()
+	
+	//~ The following member variable will be not accessible by Blueprint Graphs:
+	torch::Tensor tensor;
+
+	FTensor()
+	{
+		tensor=torch::rand({3,3});
+	}
+
+	FTensor(torch::Tensor t)
+	{
+		tensor=t;
+	}
+};
+
 UCLASS()
 class UPyTorchBPBPLibrary : public UBlueprintFunctionLibrary
 {
 	GENERATED_UCLASS_BODY()
 
-	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Execute Sample function", Keywords = "PyTorchBP sample test testing"), Category = "PyTorchBPTesting")
-	static float PyTorchBPSampleFunction(float Param);
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Make Random Int Tensor", Keywords = "PyTorchBP s"), Category = "PyTorch")
+	static FTensor  RandIntTensor(int rows,int cols);
 };
