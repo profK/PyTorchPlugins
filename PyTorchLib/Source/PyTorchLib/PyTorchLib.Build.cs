@@ -5,6 +5,12 @@ using UnrealBuildTool;
 
 public class PyTorchLib : ModuleRules
 {
+	private void CopyDLLToBinaries(string dllpath)
+	{
+		string dllname = Path.GetFileName(dllpath);
+		string Destination = Path.Combine("$(BinaryOutputDir)",dllname);
+		RuntimeDependencies.Add(Destination, dllpath);
+	}
 	public PyTorchLib(ReadOnlyTargetRules Target) : base(Target)
 	{
 	    bUseRTTI = true;
@@ -22,6 +28,10 @@ public class PyTorchLib : ModuleRules
 			new DirectoryInfo(Path.Combine(ModuleDirectory, "../ThirdParty/lib"));
 		foreach (FileInfo fInfo in piTorchLibDir.GetFiles("*.lib")){
 			PublicAdditionalLibraries.Add(fInfo.FullName);
+		}
+		
+		foreach (FileInfo fInfo in piTorchLibDir.GetFiles("*.dll")){
+			CopyDLLToBinaries(fInfo.FullName);
 		}
 		
 		PublicIncludePaths.AddRange(
