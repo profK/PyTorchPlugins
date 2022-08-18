@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "PyTorchLib.h"
+#include "PyTorchDLL.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "PyTorchBPBPLibrary.generated.h"
 

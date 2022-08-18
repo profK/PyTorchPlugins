@@ -27,7 +27,7 @@ public class PyTorchBP : ModuleRules
 			new string[]
 			{
 				"Core",
-				"PyTorchLib"
+				"PyTorchDLL"
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);
@@ -40,7 +40,7 @@ public class PyTorchBP : ModuleRules
 				"Engine",
 				"Slate",
 				"SlateCore",
-				"PyTorchLib"
+				"PyTorchDLL"
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

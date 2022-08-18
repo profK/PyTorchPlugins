@@ -23,7 +23,7 @@
 	],
 	"Plugins": [
 		{
-			"Name": "PyTorchLib",
+			"Name": "PyTorchDLL",
 			"Enabled": true
 		}
 	]
